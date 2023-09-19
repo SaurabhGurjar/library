@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,63 +8,521 @@
     <script src="script.js" defer></script>
     <title>Library</title>
 </head>
+
 <body>
+    <!-- Page design
+        > The page will be divided into three sections(coloum wise).
+            > 1. Will be sidebar(which is also divided in 3 rows).
+                > 1. for profile.
+                > 2. book collection links.
+                > 3. app setting links. 
+            > 2. will be Main section(which is also divided into 4 rows).
+                > 1. Navbar.
+                    > 1. app logo.
+                    > 2. books.
+                    > 3. audiobooks.
+                    > 4. podcasts.
+                    > 5. search bar.
+                > 2. owned books
+                    > represented as cards.
+                > 3. browse popular
+                > 4. footer
+                    > copywrite notice
+                    > app using policies and terms and conditions
+            > 3. will be Book info section
+                > title
+                > cover photo
+                > rating
+                > description
+                > read button
+    -->
     <div id="container">
         <div id="sidebar">
-            <div id="profile-wrapper">
-                <div id="photo-wrapper"></div>
-                <div id="user-name"></div>
+            <div class="close-icon-container">
+                <button id="sidebar-close-btn">
+                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        transform="rotate(90)">
+                        <g id="bgCarrier" stroke-width="0"></g>
+                        <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="iconCarrier">
+                            <path id="close-path-1"
+                                d="M3 3V2H2V3H3ZM12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L12.2929 13.7071ZM4 11V3H2V11H4ZM3 4H11V2H3V4ZM2.29289 3.70711L12.2929 13.7071L13.7071 12.2929L3.70711 2.29289L2.29289 3.70711Z"
+                                fill="#B1AFB4"></path>
+                            <path id="close-path-2"
+                                d="M4 15V15C4 16.8692 4 17.8038 4.40192 18.5C4.66523 18.9561 5.04394 19.3348 5.5 19.5981C6.19615 20 7.13077 20 9 20H14C16.8284 20 18.2426 20 19.1213 19.1213C20 18.2426 20 16.8284 20 14V9C20 7.13077 20 6.19615 19.5981 5.5C19.3348 5.04394 18.9561 4.66523 18.5 4.40192C17.8038 4 16.8692 4 15 4V4"
+                                stroke="#B1AFB4" stroke-width="2" stroke-linecap="round"></path>
+                        </g>
+                    </svg>
+                </button>
             </div>
-            <div id="collections-wrapper">
+            <div class="profile-wrapper">
+                <div class="photo-wrapper">
+                    <div class="get-profile-picture-container">
+                        <button id="add-profile-photo-btn">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="13" r="3" stroke="#F7F7F7" stroke-width="1.5"></circle>
+                                    <path
+                                        d="M10.0001 19.9999H14.0001C16.809 19.9999 18.2135 19.9999 19.2224 19.3258C19.6591 19.0339 20.0341 18.6589 20.326 18.2222C21.0001 17.2133 21.0001 15.8088 21.0001 12.9999C21.0001 10.191 21 8.78673 20.3258 7.77783C20.034 7.34107 19.659 6.96607 19.2222 6.67423C18.2133 6.00011 16.8089 6.00011 14 6.00011H9.99995C7.19103 6.00011 5.78656 6.00011 4.77767 6.67423C4.34091 6.96607 3.96591 7.34107 3.67407 7.77783C3.0001 8.7865 3.0001 10.1903 3.0001 12.998L3.0001 12.9999C3.0001 15.8088 3.0001 17.2133 3.67422 18.2222C3.96605 18.6589 4.34106 19.0339 4.77782 19.3258C5.78671 19.9999 7.19117 19.9999 10.0001 19.9999Z"
+                                        stroke="#F7F7F7" stroke-width="1.5"></path>
+                                    <path d="M18 10H17.5" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round">
+                                    </path>
+                                    <path d="M14.5 3.5H9.5" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round">
+                                    </path>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="user-name">
+                    <h3 id="full-name">Saurabh Choudhary</h3>
+                    <p id="user-handle">@saurabh</p>
+                </div>
+            </div>
+            <div class="personal-links-wrapper">
                 <ul class="links-list">
-                    <li class="sidebar-links"><span>Home</span></li>
-                    <li class="sidebar-links"><span>My list</span></li>
-                    <li class="sidebar-links"><span>Favourites</span></li>
-                    <li class="sidebar-links"><span>Reading</span></li>
+                    <li class="sidebar-links">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <path opacity="1" id="path-1"
+                                        d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                                        fill="#B1AFB4"></path>
+                                    <path id="path-2"
+                                        d="M9 17.25C8.58579 17.25 8.25 17.5858 8.25 18C8.25 18.4142 8.58579 18.75 9 18.75H15C15.4142 18.75 15.75 18.4142 15.75 18C15.75 17.5858 15.4142 17.25 15 17.25H9Z"
+                                        fill="#1C274C"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>Home</span>
+                    </li>
+                    <li class="sidebar-links">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 28 28" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                fill="#000000">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <title>list icon</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <g id="Product-Icons" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <g id="list-icon" fill="#B1AFB4" fill-rule="nonzero">
+                                            <path
+                                                d="M20,20 C20.553,20 21,20.447 21,21 C21,21.553 20.553,22 20,22 L4,22 C3.447,22 3,21.553 3,21 C3,20.447 3.447,20 4,20 L20,20 Z M24,13 C24.553,13 25,13.447 25,14 C25,14.553 24.553,15 24,15 L4,15 C3.447,15 3,14.553 3,14 C3,13.447 3.447,13 4,13 L24,13 Z M22,6 C22.553,6 23,6.447 23,7 C23,7.553 22.553,8 22,8 L4,8 C3.447,8 3,7.553 3,7 C3,6.447 3.447,6 4,6 L22,6 Z"
+                                                id="Color"> </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>My list</span>
+                    </li>
+                    <li class="sidebar-links">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" stroke="#B1AFB4">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" id="fav-1"
+                                        d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                                        stroke="#B1AFB4" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>Favourites</span>
+                    </li>
+                    <li class="sidebar-links">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <path id="read-1"
+                                        d="M4 19V6.2C4 5.0799 4 4.51984 4.21799 4.09202C4.40973 3.71569 4.71569 3.40973 5.09202 3.21799C5.51984 3 6.0799 3 7.2 3H16.8C17.9201 3 18.4802 3 18.908 3.21799C19.2843 3.40973 19.5903 3.71569 19.782 4.09202C20 4.51984 20 5.0799 20 6.2V17H6C4.89543 17 4 17.8954 4 19ZM4 19C4 20.1046 4.89543 21 6 21H20M9 7H15M9 11H15M19 17V21"
+                                        stroke="#B1AFB4" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>Reading</span>
+                    </li>
                 </ul>
             </div>
-            <div id="settings-wrapper">
+            <div class="app-links-wrapper">
                 <ul class="links-list">
-                    <li class="sidebar-link"><span>Setting</span></li>
-                    <li class="sidebar-link"><span>Support</span></li>
-                    <li class="sidebar-link"><span>Log out</span></li>
+                    <li class="sidebar-link">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <path opacity="1" id="setting-path-1"
+                                        d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                                        stroke="#B1AFB4" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path id="setting-path-2"
+                                        d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z"
+                                        stroke="#B1AFB4" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>Setting</span>
+                    </li>
+                    <li class="sidebar-link">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" id="support-path-1"
+                                        d="M0.877075 7.49972C0.877075 3.84204 3.84222 0.876892 7.49991 0.876892C11.1576 0.876892 14.1227 3.84204 14.1227 7.49972C14.1227 11.1574 11.1576 14.1226 7.49991 14.1226C3.84222 14.1226 0.877075 11.1574 0.877075 7.49972ZM7.49991 1.82689C4.36689 1.82689 1.82708 4.36671 1.82708 7.49972C1.82708 10.6327 4.36689 13.1726 7.49991 13.1726C10.6329 13.1726 13.1727 10.6327 13.1727 7.49972C13.1727 4.36671 10.6329 1.82689 7.49991 1.82689ZM8.24993 10.5C8.24993 10.9142 7.91414 11.25 7.49993 11.25C7.08571 11.25 6.74993 10.9142 6.74993 10.5C6.74993 10.0858 7.08571 9.75 7.49993 9.75C7.91414 9.75 8.24993 10.0858 8.24993 10.5ZM6.05003 6.25C6.05003 5.57211 6.63511 4.925 7.50003 4.925C8.36496 4.925 8.95003 5.57211 8.95003 6.25C8.95003 6.74118 8.68002 6.99212 8.21447 7.27494C8.16251 7.30651 8.10258 7.34131 8.03847 7.37854L8.03841 7.37858C7.85521 7.48497 7.63788 7.61119 7.47449 7.73849C7.23214 7.92732 6.95003 8.23198 6.95003 8.7C6.95004 9.00376 7.19628 9.25 7.50004 9.25C7.8024 9.25 8.04778 9.00601 8.05002 8.70417L8.05056 8.7033C8.05924 8.6896 8.08493 8.65735 8.15058 8.6062C8.25207 8.52712 8.36508 8.46163 8.51567 8.37436L8.51571 8.37433C8.59422 8.32883 8.68296 8.27741 8.78559 8.21506C9.32004 7.89038 10.05 7.35382 10.05 6.25C10.05 4.92789 8.93511 3.825 7.50003 3.825C6.06496 3.825 4.95003 4.92789 4.95003 6.25C4.95003 6.55376 5.19628 6.8 5.50003 6.8C5.80379 6.8 6.05003 6.55376 6.05003 6.25Z"
+                                        fill="#B1AFB4"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>Support</span>
+                    </li>
+                    <li class="sidebar-link">
+                        <div class="icon">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="bgCarrier" stroke-width="0"></g>
+                                <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="iconCarrier">
+                                    <path id="logout-path-1"
+                                        d="M14 20H6C4.89543 20 4 19.1046 4 18L4 6C4 4.89543 4.89543 4 6 4H14M10 12H21M21 12L18 15M21 12L18 9"
+                                        stroke="#B1AFB4" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <span>Log out</span>
+                    </li>
                 </ul>
             </div>
         </div>
+
+        <!-- Main section -->
         <div id="main-section-container">
             <header id="navbar">
-                <div class="logo-wrapper">logo</div>
+                <div class="logo-wrapper"><img src="icons/library.svg" alt="logo"></div>
                 <div id="navlinks-wrapper">
                     <ul class="links-list">
                         <li class="navbar-link">Books</li>
-                        <li class="navbar-link">Audio Books</li>
+                        <li class="navbar-link">AudioBooks</li>
                         <li class="navbar-link">Podcasts</li>
                     </ul>
                 </div>
-                <div id="search-wrapper"></div>
+                <div id="search-wrapper">
+                    <input type="search" name="search-box" id="sb-1" placeholder="Genre, author or book name">
+                </div>
             </header>
+
             <main id="main">
-                <div class="slider-container" id="user-content">
-                    <div class="book-card owned">
-                        <div class="book-title">Book title</div>
-                        <div class="book-cover">Book cover picture</div>
-                        <div class="book-description">Book description</div>
-                        <div class="book-author">Book author</div>
+                <div class="your-books-container">
+                    <div class="section-heading-wrapper">
+                        <h3 class="section-heading">Your library</h3>
+                        <button id="add-book">Add book</button>
+                    </div>
+
+                    <div class="slider-container" id="user-content">
+                        <div class="book-card owned">
+                            <div class="book-cover"><img src="images/book_covers/mr-fox.jpg" alt="book-cover"></div>
+                            <div class="title-rating-wrapper">
+                                <div class="book-title">
+                                    <h2 class="book-title">Fantastic Mr.Fox</h2>
+                                    <h5 class="book-author">Roald Dahl</h5>
+                                </div>
+                                <div class="book-numbers">
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-page-num">290</h3>
+                                        <p>pages</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-reviews">80</h3>
+                                        <p>reviews</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-ratings">450</h3>
+                                        <p>ratings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="read-btn-wrapper"><button id="book-card-forward-btn"><img
+                                        src="icons/forward.svg" alt="icon"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="slider-container" id="popular">
-                    <div class="book-card">
+                <div class="for-you-container">
+                    <h3 class="section-heading">For you</h3>
+                    <div class="slider-container" id="user-content">
                         <div class="book-card owned">
-                            <div class="book-title">Book title</div>
-                            <div class="book-cover">Book cover picture</div>
-                            <div class="book-description">Book description</div>
-                            <div class="book-author">Book author</div>
+                            <div class="book-cover"><img src="images/book_covers/mr-fox.jpg" alt="book-cover"></div>
+                            <div class="title-rating-wrapper">
+                                <div class="book-title">
+                                    <h2 class="book-title">Fantastic Mr.Fox</h2>
+                                    <h5 class="book-author">Roald Dahl</h5>
+                                </div>
+                                <div class="book-numbers">
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-page-num">290</h3>
+                                        <p>pages</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-reviews">80</h3>
+                                        <p>reviews</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-ratings">450</h3>
+                                        <p>ratings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="read-btn-wrapper"><button id="book-card-forward-btn"><img
+                                        src="icons/forward.svg" alt="icon"></button>
+                            </div>
+                        </div>
+
+                        <div class="book-card owned">
+                            <div class="book-cover"><img src="images/book_covers/mr-fox.jpg" alt="book-cover"></div>
+                            <div class="title-rating-wrapper">
+                                <div class="book-title">
+                                    <h2 class="book-title">Fantastic Mr.Fox</h2>
+                                    <h5 class="book-author">Roald Dahl</h5>
+                                </div>
+                                <div class="book-numbers">
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-page-num">290</h3>
+                                        <p>pages</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-reviews">80</h3>
+                                        <p>reviews</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-ratings">450</h3>
+                                        <p>ratings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="read-btn-wrapper"><button><img src="icons/forward.svg" alt="icon"></button>
+                            </div>
+                        </div>
+
+                        <div class="book-card owned">
+                            <div class="book-cover"><img src="images/book_covers/mr-fox.jpg" alt="book-cover"></div>
+                            <div class="title-rating-wrapper">
+                                <div class="book-title">
+                                    <h2 class="book-title">Fantastic Mr.Fox</h2>
+                                    <h5 class="book-author">Roald Dahl</h5>
+                                </div>
+                                <div class="book-numbers">
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-page-num">290</h3>
+                                        <p>pages</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-reviews">80</h3>
+                                        <p>reviews</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-ratings">450</h3>
+                                        <p>ratings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="read-btn-wrapper"><button><img src="icons/forward.svg" alt="icon"></button>
+                            </div>
+                        </div>
+
+                        <div class="book-card owned">
+                            <div class="book-cover"><img src="images/book_covers/mr-fox.jpg" alt="book-cover"></div>
+                            <div class="title-rating-wrapper">
+                                <div class="book-title">
+                                    <h2 class="book-title">Fantastic Mr.Fox</h2>
+                                    <h5 class="book-author">Roald Dahl</h5>
+                                </div>
+                                <div class="book-numbers">
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-page-num">290</h3>
+                                        <p>pages</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-reviews">80</h3>
+                                        <p>reviews</p>
+                                    </div>
+                                    <div class="num-wrapper">
+                                        <h3 id="mrf-ratings">450</h3>
+                                        <p>ratings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="read-btn-wrapper"><button><img src="icons/forward.svg" alt="icon"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular">
+                    <h3 class="section-heading">Week of Modern Classics</h3>
+                    <div class="slider-container">
+                        <div class="book-card">
+                            <div class="top-section">
+                                <div class="top">
+                                    <div class="book-cover"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                    <div class="author-and-publication-container">
+                                        <div class="book-author">
+                                            <h3 class="author-name">SEHT GODIN</h3>
+                                        </div>
+                                        <div class="book-publisher">
+                                            <p>SIMON AND SCHUSTER</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="picture-section">
+                                    <div class="book-picture-container"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                </div>
+                            </div>
+                            <div class="bottom-section">
+                                <div class="book-title-and-author-wrapper">
+                                    <h4 class="book-title">Permission Marketing</h4>
+                                    <p class="author-name">Seth Godin</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="top-section">
+                                <div class="top">
+                                    <div class="book-cover"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                    <div class="author-and-publication-container">
+                                        <div class="book-author">
+                                            <h3 class="author-name">SEHT GODIN</h3>
+                                        </div>
+                                        <div class="book-publisher">
+                                            <p>SIMON AND SCHUSTER</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="picture-section">
+                                    <div class="book-picture-container"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                </div>
+                            </div>
+                            <div class="bottom-section">
+                                <div class="book-title-and-author-wrapper">
+                                    <h4 class="book-title">Permission Marketing</h4>
+                                    <p class="author-name">Seth Godin</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="top-section">
+                                <div class="top">
+                                    <div class="book-cover"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                    <div class="author-and-publication-container">
+                                        <div class="book-author">
+                                            <h3 class="author-name">SEHT GODIN</h3>
+                                        </div>
+                                        <div class="book-publisher">
+                                            <p>SIMON AND SCHUSTER</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="picture-section">
+                                    <div class="book-picture-container"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                </div>
+                            </div>
+                            <div class="bottom-section">
+                                <div class="book-title-and-author-wrapper">
+                                    <h4 class="book-title">Permission Marketing</h4>
+                                    <p class="author-name">Seth Godin</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="top-section">
+                                <div class="top">
+                                    <div class="book-cover"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                    <div class="author-and-publication-container">
+                                        <div class="book-author">
+                                            <h3 class="author-name">SEHT GODIN</h3>
+                                        </div>
+                                        <div class="book-publisher">
+                                            <p>SIMON AND SCHUSTER</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="picture-section">
+                                    <div class="book-picture-container"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                </div>
+                            </div>
+                            <div class="bottom-section">
+                                <div class="book-title-and-author-wrapper">
+                                    <h4 class="book-title">Permission Marketing</h4>
+                                    <p class="author-name">Seth Godin</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="top-section">
+                                <div class="top">
+                                    <div class="book-cover"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                    <div class="author-and-publication-container">
+                                        <div class="book-author">
+                                            <h3 class="author-name">SEHT GODIN</h3>
+                                        </div>
+                                        <div class="book-publisher">
+                                            <p>SIMON AND SCHUSTER</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="picture-section">
+                                    <div class="book-picture-container"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                            alt="book_cover"></div>
+                                </div>
+                            </div>
+                            <div class="bottom-section">
+                                <div class="book-title-and-author-wrapper">
+                                    <h4 class="book-title">Permission Marketing</h4>
+                                    <p class="author-name">Seth Godin</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </main>
-            <footer>
-                <div class="copywrite-notice">CopyWrite &copy; 2023</div>
+
+            <!-- Footer section -->
+            <footer id="footer">
+                <div class="copywrite-notice">
+                    <p id="copywrite-text">Copywrite &copy; 2023</p>
+                </div>
                 <div class="footer-links">
                     <ul class="links-list">
                         <li class="footer-link">Terms and conditions</li>
@@ -73,13 +532,83 @@
                 </div>
             </footer>
         </div>
-        <div id="book-info">
+        <div id="book-about-section">
             <h3 class="section-heading">About the book</h3>
-            <div class="book-cover-wrapper"></div>
-            <div class="book-details"></div>
-            <div class="book-description-wrapper"></div>
-            <div class="read-btn-wrapper"><button>Read</button></div>
+            <div class="book-cover-wrapper">
+                <div class="book-card">
+                    <div class="top-section">
+                        <div class="top">
+                            <div class="book-cover"><img src="images/book_covers/pm-seth_godin.jpeg" alt="book_cover">
+                            </div>
+                            <div class="author-and-publication-container">
+                                <div class="book-author">
+                                    <h3 class="author-name">SEHT GODIN</h3>
+                                </div>
+                                <div class="book-publisher">
+                                    <p>SIMON AND SCHUSTER</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="picture-section">
+                            <div class="book-picture-container"><img src="images/book_covers/pm-seth_godin.jpeg"
+                                    alt="book_cover"></div>
+                        </div>
+                    </div>
+                    <div class="bottom-section">
+                        <div class="book-title-and-author-wrapper">
+                            <h4 class="book-title">Permission Marketing</h4>
+                            <p class="author-name">Seth Godin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="book-details">
+                <div class="book-numbers">
+                    <div class="num-wrapper">
+                        <h3 id="mrf-page-num">290</h3>
+                        <p>pages</p>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="num-wrapper">
+                        <h3 id="mrf-reviews">80</h3>
+                        <p>reviews</p>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="num-wrapper">
+                        <h3 id="mrf-ratings">450</h3>
+                        <p>ratings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-description-wrapper">
+                <h4 class="section-heading">Plot</h4>
+                <p>The man Business Week calls "the ultimate entrepreneur for the Information Age" explains "Permission
+                    Marketing" --
+                    the groundbreaking concept that enables marketers to shape their message so that consumers will
+                    willingly accept it.
+                    Whether it is the TV commercial that breaks into our favorite program, or the telemarketing phone
+                    call that disrupts a
+                    family dinner, traditional advertising is based on the hope of snatching our attention away from
+                    whatever we are doing.
+                    Seth Godin calls this Interruption Marketing, and, as companies are discovering, it no longer works.
+                </p>
+
+                <p>
+                    Instead of annoying potential customers by interrupting their most coveted commodity -- time --
+                    Permission Marketing
+                    offers consumers incentives to accept advertising voluntarily. Now this Internet pioneer introduces
+                    a fundamentally
+                    different way of thinking about advertising products and services. By reaching out only to those
+                    individuals who have
+                    signaled an interest in learning more about a product, Permission Marketing enables companies to
+                    develop long-term relationships
+                    with customers, create trust, build brand awareness -- and greatly improve the chances of making a
+                    sale.
+                </p>
+            </div>
+            <div class="read-btn-wrapper"><button id="about-section-read-btn">Read</button></div>
         </div>
     </div>
 </body>
+
 </html>
