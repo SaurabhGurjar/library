@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
     <script src="script.js" defer></script>
+    <script src="modal.js" defer></script>
     <title>Library</title>
 </head>
 
@@ -28,7 +30,7 @@
                 > 3. browse popular
                 > 4. footer
                     > copywrite notice
-                    > app using policies and terms and conditions
+                    > using policies and terms and conditions
             > 3. will be Book info section
                 > title
                 > cover photo
@@ -36,6 +38,57 @@
                 > description
                 > read button
     -->
+<div id="overlay"></div>
+    <div id="get-book-details" class="modal">
+        <div class="modal-header">
+            <h3 class="modal-heading">Enter book details</h3>
+        </div>
+        <div class="modal-main">
+            <form id="book-form">
+                <div class="book-name-wrapper">    
+                    <label for="book-name" class="text-label">Book name</label>
+                    <input type="text" id="book-name" name="book_name" autocomplete="off" autofocus="true" spellcheck="false" required>
+                </div>
+                <fieldset>
+                    <legend>Author name</legend>
+                    <div class="auth-name">
+                        <label for="fname" class="text-label">First name</label>
+                        <input type="text" name="fname" id="fname" autocomplete="off" spellcheck="false" required>
+                    </div>
+
+                    <div class="auth-name">
+                        <label for="lname" class="text-label">Last name</label>
+                        <input type="text" name="lname" id="lname" autocomplete="off" spellcheck="false" required>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    
+                    <legend>Numbers</legend>
+                    <div class="pages-wrapper">
+                        <label for="pages" class="text-label">Pages</label>
+                        <input type="number" name="pages" id="pages" min="0" required>
+                    </div>
+                    <div class="reviews-wrapper">
+                        <label for="reviews" class="text-label">Reviews</label>
+                        <input type="number" name="reviews" id="reviews" min="0">
+                    </div>
+                    <div class="rating-wrapper">
+                        <label for="rating" class="text-label">Ratings</label>
+                        <input type="number" name="ratings" id="ratings" min="0" max="5">
+                    </div>
+                    
+                </fieldset>
+                <label for="cover-img">Cover picture</label>
+                <input type="file" id="cover-img" name="cover_img" accept="image/x-png,image/jpeg, image/jpg">
+                
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="read" name="read_book">
+                    <label for="read">I have read this book</label>
+                </div>
+                <input type="submit" value="Add Book">
+            </form>
+        </div>
+    </div>
     <div id="container">
         <div id="sidebar">
             <div class="close-icon-container">

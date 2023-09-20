@@ -1,0 +1,115 @@
+body {
+    position: relative;
+
+    .modal {
+        position: absolute;
+        top: 20px;
+        left: 42%;
+        display: none;
+        border-radius: 20px;
+        padding: 20px 50px;
+        background-color: #fff;
+        box-shadow: 0 0 10px 5px rgba(26, 26, 35, 0.1);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        z-index: 40;
+
+        .modal-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #book-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+
+            >fieldset {
+                display: flex;
+                flex-direction: column;
+                padding: 15px 10px;
+                gap: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.book-name-wrapper,
+.auth-name,
+.pages-wrapper,
+.reviews-wrapper,
+.rating-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+    outline: 1px solid black;
+}
+
+.text-label {
+    position: absolute;
+    z-index: 21;
+    font-size: 14px;
+    color: #0A0808;
+    top: -12px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 5px;
+}
+
+input[type="submit"] {
+    padding: 15px 0;
+    width: 100%;
+    font-size: 14px;
+    color: #F7F7F7;
+    background-color: #4A80F0;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+}
+
+input[type="text"]:invalid,
+input[type="number"]:invalid {
+    outline: 1px solid red;
+}
+
+input[type="text"]:valid,
+input[type="number"]:valid {
+    outline: 1px solid greenyellow;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+#overlay {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 26, 35);
+    opacity: 0.5;
+    z-index: 30;
+}
+
+.show-modal {
+    display: flex;
+}
+
+.add-overlay {
+    display: block;
+}
