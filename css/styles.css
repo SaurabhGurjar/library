@@ -372,10 +372,11 @@ ul {
                                 color: #B1AFB4;
                             }
 
-                            >button {
+                            .status-btn {
                                 font-size: 14px;
-                                padding: 6px 8px;
-                                border-radius: 8px;
+                                font-weight: 900;
+                                padding: 4px;
+                                border-radius: 4px;
                                 width: max-content;
                                 border: none;
                                 cursor: pointer;
@@ -434,7 +435,7 @@ ul {
                         align-items: center;
                         justify-content: space-between;
 
-                        >button {
+                        #book-card-forward-btn {
                             width: 40px;
                             height: 40px;
                             background: none;
@@ -450,6 +451,14 @@ ul {
                         .remove-book {
                             font-size: 14px;
                             font-weight: 900;
+                            padding: 4px;
+                            margin-top: 5px;
+                            border-radius: 4px;
+                            border: none;
+                            background-color: red;
+                            color: #fff;
+                            text-align: center;
+                            cursor: pointer;
                         }
                     }
                 }

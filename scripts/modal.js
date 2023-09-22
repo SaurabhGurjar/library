@@ -17,6 +17,12 @@ function Book(title, author, pages, reviews, rating, status, cover_img) {
     this.cover_img = cover_img;
 }
 
+Book.prototype.getBookId = function () {
+    const id = this.title.toLowerCase().split(' ');
+    return id.reduce((concatStr, item) => {
+        return concatStr + item.trim();
+    })
+}
 const fmf = new Book('Fantastic Mr.Fox', 'Roald Dahl', '290', '80', '4', 'read', 'images/book_covers/mr-fox.jpg');
 
 const booksArr = [fmf];
@@ -25,7 +31,6 @@ function getFormData (event) {
     const obj = {};
     event.preventDefault();
     const nodeListLen = inputs.length - 2;
-    console.log(inputs);
     for(let i = 0; i < nodeListLen; i++) {
         const item = inputs[i];
 
@@ -45,15 +50,16 @@ function getFormData (event) {
     } else {
         obj['status'] = 'not read';
     }
-    console.log(obj);
+    
     hideModal();
     return obj;
 }
 
 function addBooktoArray (event) {
     const obj = getFormData(event);
+    obj.author = `${obj.fname} ${obj.lname}`;
     if(obj) {
-        booksArr.push(obj);
+        booksArr.push(new Book(obj.title, obj.author, obj.pages, obj.reviews, obj.rating, obj.status, obj.cover_img));
     }
     addNewBookToDom(booksArr);
 }

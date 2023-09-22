@@ -38,7 +38,7 @@ function createBookCard(bookObj) {
     </div>
     </div>
     <div class="read-and-remove-btn-wrapper">
-    <button class="remove-book">X</button>
+    <button class="remove-book" data-book-id=${bookObj.getBookId()}>delete</button>
     <button id="book-card-forward-btn"><img
     src="icons/forward.svg" alt="icon"></button>
     </div>
@@ -48,7 +48,7 @@ function createBookCard(bookObj) {
 function addWrapperDiv(book) {
     const div = document.createElement('div');
     div.classList.add('book-card', 'owned', 'your-library');
-    div.id = book.title;
+    div.id = book.getBookId();
     return div;
 }
 
@@ -58,7 +58,6 @@ function addNewBookToDom() {
     const div = addWrapperDiv(lastBook);
     div.innerHTML = createBookCard(lastBook);
     const yourBooks = document.querySelectorAll('.your-library');
-    console.log(yourBooks.length, arrlen);
 
     if (arrlen > yourBooks.length) {
         userContent.appendChild(div);
@@ -84,11 +83,29 @@ function toggleStatus(statusBtn) {
     }
 }
 
+function removeBookFromLibrary(event, bookArr) {
+    const bookId = event.target.dataset.bookId;
+    event.target.parentElement.parentElement.remove();
+    bookArr.forEach((item, index) => {
+        if (item.getBookId() === bookId){
+            bookArr.splice(index, 1);
+        }
+    })
+
+
+}
+
 addSavedBooksToDom(booksArr);
 
 const statusBtn = document.querySelectorAll('.status-btn');
-console.log(statusBtn);
 statusBtn.forEach(item => {
     item.addEventListener('click', () => {
     toggleStatus(item);
 })});
+
+const remove = document.querySelectorAll('.remove-book');
+remove.forEach(item => {
+    item.addEventListener('click', (event) => {
+        removeBookFromLibrary(event, booksArr);
+    });
+})
