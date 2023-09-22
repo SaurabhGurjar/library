@@ -472,7 +472,8 @@ ul {
                     gap: 60px;
 
                     .book-card {
-                       padding: 10px;
+                        width: 250px;
+                        padding: 10px;
 
                         .top-section {
                             border-radius: 15px;
