@@ -86,7 +86,7 @@ ul {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background: url(icons/person-profile.svg) no-repeat center;
+                background: url(../icons/person-profile.svg) no-repeat center;
 
                 .get-profile-picture-container {
                     display: none;
@@ -335,24 +335,22 @@ ul {
 
                 /* book card */
                 .owned {
-                    display: grid;
-                    grid-template-columns: 2fr 10fr 1fr;
+                    display: flex;
                     justify-content: center;
-                    /* align-items: center; */
-                    min-width: 40%;
-                    max-width: 40%;
+                    align-items: center;
                     border-radius: 30px;
                     box-shadow: 0 0 5px 2px rgb(148, 174, 252, 0.1);
-                    padding: 20px 35px;
-                    gap: 40px;
+                    padding: 10px 20px;
+                    gap: 30px;
 
                     .book-cover {
-                        width: 120px;
+                        width: 100px;
+                        height: 150px;
                         border-radius: 20px;
-                        background: #F7F7F7 url(icons/book-cover.svg) no-repeat center;
+                        background: #F7F7F7 url(../icons/book-cover.svg) no-repeat center;
 
                         >img {
-                            width: 100%;
+                            height: 100%;
                             border-radius: 20px;
                         }
                     }
@@ -362,7 +360,7 @@ ul {
                     .title-rating-wrapper {
                         display: flex;
                         flex-direction: column;
-                        gap: 40px;
+                        gap: 10px;
                         padding: 20px 0;
 
                         .book-title {
@@ -373,6 +371,18 @@ ul {
                             .book-author {
                                 color: #B1AFB4;
                             }
+
+                            >button {
+                                font-size: 14px;
+                                padding: 6px 8px;
+                                border-radius: 8px;
+                                width: max-content;
+                                border: none;
+                                cursor: pointer;
+                                color: #FFF;
+                            }
+
+                            
                         }
 
                         .book-numbers {
@@ -414,6 +424,32 @@ ul {
                                 width: 30px;
                             }
 
+                        }
+                    }
+
+                    .read-and-remove-btn-wrapper {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        >button {
+                            width: 40px;
+                            height: 40px;
+                            background: none;
+                            border: none;
+                            border-radius: 10px;
+                            cursor: pointer;
+
+                            >img {
+                                width: 30px;
+                            }
+                        }
+
+                        .remove-book {
+                            font-size: 14px;
+                            font-weight: 900;
                         }
                     }
                 }
@@ -672,4 +708,12 @@ ul {
     width: 2px;
     height: 20px;
     background-color: #F7F7F7;
+}
+
+.read {
+    background-color: green;
+}
+
+.not-read {
+    background-color: red;
 }

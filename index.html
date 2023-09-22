@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="modal.css">
-    <script src="script.js" defer></script>
-    <script src="modal.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/script.js" defer></script>
     <title>Library</title>
 </head>
 
@@ -42,12 +42,13 @@
     <div id="get-book-details" class="modal">
         <div class="modal-header">
             <h3 class="modal-heading">Enter book details</h3>
+            <p class="error"></p>
         </div>
         <div class="modal-main">
             <form id="book-form">
                 <div class="book-name-wrapper">    
                     <label for="book-name" class="text-label">Book name</label>
-                    <input type="text" id="book-name" name="book_name" autocomplete="off" autofocus="true" spellcheck="false" required>
+                    <input type="text" id="book-name" name="title" autocomplete="off" autofocus="true" spellcheck="false" required>
                 </div>
                 <fieldset>
                     <legend>Author name</legend>
@@ -70,11 +71,11 @@
                     </div>
                     <div class="reviews-wrapper">
                         <label for="reviews" class="text-label">Reviews</label>
-                        <input type="number" name="reviews" id="reviews" min="0">
+                        <input type="number" name="reviews" id="reviews" min="0" value="0">
                     </div>
                     <div class="rating-wrapper">
                         <label for="rating" class="text-label">Ratings</label>
-                        <input type="number" name="ratings" id="ratings" min="0" max="5">
+                        <input type="number" name="rating" id="rating" min="0" max="5" value="0">
                     </div>
                     
                 </fieldset>
@@ -291,34 +292,7 @@
                         <button id="add-book">Add book</button>
                     </div>
 
-                    <div class="slider-container" id="user-content">
-                        <div class="book-card owned">
-                            <div class="book-cover"><img src="images/book_covers/mr-fox.jpg" alt="book-cover"></div>
-                            <div class="title-rating-wrapper">
-                                <div class="book-title">
-                                    <h2 class="book-title">Fantastic Mr.Fox</h2>
-                                    <h5 class="book-author">Roald Dahl</h5>
-                                </div>
-                                <div class="book-numbers">
-                                    <div class="num-wrapper">
-                                        <h3 id="mrf-page-num">290</h3>
-                                        <p>pages</p>
-                                    </div>
-                                    <div class="num-wrapper">
-                                        <h3 id="mrf-reviews">80</h3>
-                                        <p>reviews</p>
-                                    </div>
-                                    <div class="num-wrapper">
-                                        <h3 id="mrf-ratings">450</h3>
-                                        <p>ratings</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="read-btn-wrapper"><button id="book-card-forward-btn"><img
-                                        src="icons/forward.svg" alt="icon"></button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="slider-container" id="user-content"></div>
                 </div>
                 <div class="for-you-container">
                     <h3 class="section-heading">For you</h3>
