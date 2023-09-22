@@ -467,30 +467,21 @@ ul {
 
             }
 
-            .popular {
+            .popular-books-section {
                 .slider-container {
                     gap: 60px;
 
                     .book-card {
-                        min-width: 250px;
-                        height: 500px;
-
-                        display: grid;
-                        grid-template-rows: 3fr 1fr;
-                        /* padding: 20px; */
-                        gap: 20px;
+                       padding: 10px;
 
                         .top-section {
-                            display: grid;
-                            grid-template-rows: 1fr 2fr;
                             border-radius: 15px;
                             background-color: #F7F7F7;
                             box-shadow: 0 0 5px 2px rgb(148, 174, 252, 0.1);
                             gap: 10px;
 
                             .top {
-                                display: grid;
-                                grid-template-columns: 1fr 3fr;
+                                display: flex;
                                 padding: 10px;
                                 gap: 20px;
 
@@ -508,7 +499,7 @@ ul {
 
                                     >img {
                                         width: 100%;
-                                        height: 250px;
+                                        height: 180px;
                                     }
                                 }
                             }
@@ -516,23 +507,28 @@ ul {
                     }
 
                     .book-card:hover {
-                        outline: 10px solid #4A80F0;
                         background-color: #4A80F0;
                         z-index: 10;
                         border-radius: 20px;
                         border: none;
 
-                        .bottom-section {
-                            .book-title-and-author-wrapper {
-
-                                .book-title,
-                                .author-name {
-                                    color: #F7F7F7;
-                                }
+                        .book-title-and-author-wrapper {
+                            .book-title,
+                            .author-name {
+                                color: #F7F7F7;
                             }
                         }
+                    }
 
+                    .bottom-section {
+                        padding-top: 20px;
+                        .book-title-and-author-wrapper {
 
+                            .book-title,
+                            .author-name {
+                                color: #1A1A23;
+                            }
+                        }
                     }
                 }
             }
