@@ -7,25 +7,44 @@ const error = document.querySelector('.error');
 const read = document.getElementById('read');
 const form = document.querySelector('form');
 
-function Book(title, author, pages, reviews, rating, status, cover_img) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.reviews = reviews;
-    this. rating = rating;
-    this.status = status;
-    this.cover_img = cover_img;
-}
+// function Book(title, author, pages, reviews, rating, status, cover_img) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.reviews = reviews;
+//     this. rating = rating;
+//     this.status = status;
+//     this.cover_img = cover_img;
+// }
 
-Book.prototype.getBookId = function () {
-    const id = this.title.toLowerCase().split(' ');
-    return id.reduce((concatStr, item) => {
-        return concatStr + item.trim();
-    })
-}
-const fmf = new Book('Fantastic Mr.Fox', 'Roald Dahl', '290', '80', '4', 'read', 'images/book_covers/mr-fox.jpg');
+// Book.prototype.getBookId = function () {
+//     const id = this.title.toLowerCase().split(' ');
+//     return id.reduce((concatStr, item) => {
+//         return concatStr + item.trim();
+//     })
+// }
 
-const booksArr = [fmf];
+class Book {
+    constructor(title, author, pages, reviews, rating, status, cover_img) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.reviews = reviews; 
+        this.rating = rating;
+        this.status = status;
+        this.cover_img = cover_img;
+    }
+
+    get bookId () {
+        const id = this.title.toLowerCase().split(' ');
+        return id.reduce((concatStr, item) => {
+          concatStr + item.trim();
+        });
+    }
+}
+const book = new Book('Fantastic Mr.Fox', 'Roald Dahl', '290', '80', '4', 'read', 'images/book_covers/mr-fox.jpg');
+
+const booksArr = [book];
 
 function getFormData (event) {
     const obj = {};

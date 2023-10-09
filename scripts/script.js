@@ -38,7 +38,7 @@ function createBookCard(bookObj) {
     </div>
     </div>
     <div class="read-and-remove-btn-wrapper">
-    <button class="remove-book" data-book-id=${bookObj.getBookId()}>delete</button>
+    <button class="remove-book" data-book-id=${bookObj.bookId}>delete</button>
     <button id="book-card-forward-btn"><img
     src="icons/forward.svg" alt="icon"></button>
     </div>
@@ -48,7 +48,7 @@ function createBookCard(bookObj) {
 function addWrapperDiv(book) {
     const div = document.createElement('div');
     div.classList.add('book-card', 'owned', 'your-library');
-    div.id = book.getBookId();
+    div.id = book.bookId;
     return div;
 }
 
